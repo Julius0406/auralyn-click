@@ -12,7 +12,7 @@
 AppId={{E46228BE-B314-4D11-9C45-BD749D0FA23F}
 AppName={#MyAppName}
 AppVersion={#MyAppVersion}
-AppPublisher=Julius04-06
+AppPublisher=Julius0406
 DefaultDirName={localappdata}\Programs\Auralyn Click
 DefaultGroupName=Auralyn Click
 DisableProgramGroupPage=yes

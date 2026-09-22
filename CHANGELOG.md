@@ -3,7 +3,7 @@
 ## 2.4.1 — release cleanup and documentation
 
 - refreshed the public README for Windows and Linux
-- standardized author and publisher metadata as Julius04-06
+- standardized author and publisher metadata as Julius0406
 - removed the stale 2.2.0 commit message from the publishing helper
 - versioned the generated GitHub source ZIP correctly
 - added the source ZIP to automatic GitHub Release assets

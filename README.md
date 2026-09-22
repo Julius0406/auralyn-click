@@ -199,7 +199,7 @@ Auralyn Click is mainly written in **Python** and uses **Qt 6 / PySide6** for th
 
 ## Credits
 
-Created and maintained by **Julius04-06**.
+Created and maintained by **Julius0406**.
 
 Auralyn Click uses PySide6 / Qt and pynput. Those projects remain under their respective licenses.
 

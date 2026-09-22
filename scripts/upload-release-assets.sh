@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-REPO="${REPO:-Julius04-06/auralyn-click}"
+REPO="${REPO:-Julius0406/auralyn-click}"
 VERSION="${1:-2.4.1}"
 TAG="v$VERSION"
 DIR="${2:-$HOME/Downloads}"

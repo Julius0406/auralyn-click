@@ -9,7 +9,7 @@ description = "Modern cross-platform auto clicker for Windows and Linux, built w
 readme = "README.md"
 requires-python = ">=3.10"
 license = { text = "MIT" }
-authors = [{ name = "Julius04-06" }]
+authors = [{ name = "Julius0406" }]
 dependencies = [
   "PySide6>=6.8,<7",
   "pynput>=1.7.7,<2"

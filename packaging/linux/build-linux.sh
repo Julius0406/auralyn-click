@@ -30,7 +30,7 @@ Version: $VERSION
 Section: utils
 Priority: optional
 Architecture: amd64
-Maintainer: Julius04-06
+Maintainer: Julius0406
 Description: Modern cross-platform auto clicker for Windows and Linux
 EOF
 cat > "$PKG/usr/share/applications/auralyn-click.desktop" <<'EOF'
