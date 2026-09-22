@@ -5,21 +5,48 @@
 </p>
 
 <p align="center">
-  <strong>A modern, animated and deeply customizable auto clicker for Linux.</strong><br>
-  Built with Python + Qt 6. Designed by Julius.
+  <strong>A modern and customizable auto clicker for Linux.</strong><br>
+  Built with Python and Qt 6. Designed by Julius.
 </p>
 
-> **Project status:** Beta / active development. Linux-first, especially Ubuntu + GNOME.
+Auralyn Click is a Linux-first auto clicker with a focus on a clean interface, useful controls, smooth animations and customization. It is currently in active development and is mainly tested on Ubuntu with GNOME.
 
-## ✨ Why Auralyn Click?
+It is a general desktop automation tool. It does not contain anti-cheat bypasses or stealth features. Some games, servers and services do not allow auto clickers, so check their rules before using it.
 
-Auralyn Click started as a small personal auto clicker and was rewritten as a proper Qt 6 desktop app with a focus on design, smooth motion, Linux integration, safety controls and customization.
+## Features
 
-It is intentionally **not** an anti-cheat bypass. Some games and services prohibit auto clickers, so check the rules of the software/server where you use it.
+### Clicking
 
-## 🎨 UI, themes and backgrounds
+- Click interval down to 1 ms
+- CPS mode from 1 to 1000 CPS
+- Left, right and middle mouse button
+- Single, double and triple click
+- Optional click hold duration
+- Current cursor position or fixed X/Y position
+- Capture the current cursor position with F7
+- Optional random position radius
+- Optional random delay
+- Infinite clicking or a fixed action count
+- Start delay
+- Optional time limit
+- Burst mode with configurable click count and pause
+- Live CPS counter
+- Total click counter
+- Session timer
 
-Auralyn Click includes a dedicated **gear menu** that slides in with an animation.
+### Global hotkeys
+
+- **F6** — Start / Stop
+- **F7** — Capture cursor position
+- **F8** — Emergency stop
+
+F8 is intentionally stop-only, so pressing it can never start the clicker by accident.
+
+Auralyn Click also uses a single-instance lock. Opening the app a second time brings the existing window forward instead of starting another click engine.
+
+## Interface and customization
+
+The interface is built with Qt 6 and includes a separate settings panel for appearance and display options.
 
 ### Themes
 
@@ -35,13 +62,15 @@ Auralyn Click includes a dedicated **gear menu** that slides in with an animatio
 - Sunset
 - Rose
 
-### Built-in backgrounds
+### Backgrounds
 
-- **Aurora** — animated moving color fields and light waves
-- **Nebula** — moving clouds + pulsing stars
-- **Grid Waves** — animated futuristic grid
+Built-in backgrounds include:
+
+- **Aurora** — animated moving color fields
+- **Nebula** — moving clouds and stars
+- **Grid Waves** — animated grid effect
 - **Particles** — floating particles
-- **Static Gradient** — low-power static option
+- **Static Gradient** — low-power static background
 - **Custom** — your own PNG, JPG, WEBP or animated GIF
 
 Custom backgrounds are copied to:
@@ -50,209 +79,150 @@ Custom backgrounds are copied to:
 ~/.config/auralyn-click/
 ```
 
-so they do not disappear if the original file is moved later.
+That way they keep working even if the original image is moved later.
 
-### Motion quality
+### Animation quality
 
-Background animation can run at:
+Background animation can be set to:
 
 - 30 FPS
 - 60 FPS
 - 120 FPS
 - 160 FPS
 
-The actual visible refresh rate is still limited by your monitor and Linux compositor.
+The visible frame rate still depends on the monitor, desktop compositor and system load.
 
-### Smooth scrolling performance mode
+## Performance
 
-Auralyn Click 2.2 adds a scroll-aware renderer. While you actively scroll, expensive decorative animation is paused for a fraction of a second so the Qt scroll area gets the frame budget. As soon as scrolling stops, the selected animated background resumes automatically.
+Version 2.2 includes several changes aimed at keeping scrolling and resizing smooth.
 
-Other performance fixes in 2.2:
+While you actively scroll, expensive decorative background animation is temporarily reduced so the Qt scroll area gets more rendering time. The selected background resumes automatically when scrolling stops.
 
-- the Live Orb now animates at a stable 60 Hz instead of requesting ~166 repaints per second
-- custom images and GIF frames are cached at the current window size instead of being scaled during every paint
-- resize styling is debounced so a resize does not rebuild the full Qt stylesheet dozens of times
-- procedural effects use fewer expensive paint operations
+Other optimizations include:
 
-You can disable **Smooth scrolling mode** in the gear menu if you prefer the background to keep animating during scroll input.
+- Live status animation runs at a stable 60 Hz instead of requesting unnecessary high-frequency repaints
+- custom images and GIF frames are cached at the current window size
+- stylesheet updates during resizing are debounced
+- procedural backgrounds use fewer expensive paint operations
 
-## 🌍 Languages
+Smooth scrolling mode can be disabled in the display settings if you prefer backgrounds to keep animating while scrolling.
 
-The default language is **System / Auto**. Auralyn Click reads the Linux locale (`LANG`, `LC_MESSAGES` or `LC_ALL`) and chooses a supported language automatically.
+## Languages
 
-You can override it from the gear menu and use **Apply language & restart**. The selected language is saved in `~/.config/auralyn-click/settings.json`.
+The default language is **System / Auto**. Auralyn Click reads the Linux locale from `LANG`, `LC_MESSAGES` or `LC_ALL` and chooses a supported language automatically.
 
-Auralyn Click currently exposes **24 selectable languages**:
-
-- German (Deutsch)
-- English
-- French (Français)
-- Spanish (Español)
-- Italian (Italiano)
-- Portuguese (Português)
-- Dutch (Nederlands)
-- Polish (Polski)
-- Czech (Čeština)
-- Slovak (Slovenčina)
-- Hungarian (Magyar)
-- Romanian (Română)
-- Swedish (Svenska)
-- Norwegian (Norsk)
-- Danish (Dansk)
-- Finnish (Suomi)
-- Turkish (Türkçe)
-- Russian (Русский)
-- Ukrainian (Українська)
-- Greek (Ελληνικά)
-- Japanese (日本語)
-- Korean (한국어)
-- Chinese (中文)
-- Arabic (العربية, with RTL layout)
-
-Some technical terms such as CPS/FPS and product/theme names intentionally stay unchanged across languages.
-
-## 🚀 Start screen
-
-The splash/loading screen uses your currently selected theme and background.
-
-It shows:
-
-- large Auralyn Click logo
-- large `Auralyn Click` title
-- animated background
-- progress animation
-- `By Julius` centered at the bottom
-
-You can choose:
-
-- **Fullscreen**
-- **Compact**
-- **Off**
-
-and change the display duration in Settings.
-
-## 🖱️ Auto-clicker features
-
-### Timing
-
-- interval mode down to **1 ms**
-- direct **CPS mode** from 1–1000 CPS
-- quick presets: 10 CPS, 20 CPS, 100 CPS and 1 ms
-- optional random delay/jitter
-
-### Click style
-
-- left click
-- right click
-- middle click
-- single click
-- double click
-- triple click
-- optional press/hold duration per click
-
-### Position
-
-- click at the current cursor position
-- fixed X/Y position
-- F7 captures the current cursor position
-- optional random position radius around a fixed point
-
-### Session controls
-
-- infinite mode
-- fixed action count
-- configurable start delay
-- optional time limit
-- burst mode: click N times, pause, continue
-- live CPS
-- total click counter
-- session timer
-
-### Safety
-
-- **F6** — global Start / Stop
-- **F7** — capture cursor position
-- **F8** — dedicated emergency stop; it only stops and never starts clicking
-- single-instance lock: opening Auralyn Click twice brings the existing window forward instead of creating another click engine
-
-## 💾 Settings
-
-Settings are saved automatically and restored on the next launch:
+You can change the language from the settings panel at any time. The selected language is stored in:
 
 ```text
 ~/.config/auralyn-click/settings.json
 ```
 
-On the first launch, Auralyn Click can automatically import compatible settings from the old PulseClick configuration at:
+Currently available languages:
+
+- German — Deutsch
+- English
+- French — Français
+- Spanish — Español
+- Italian — Italiano
+- Portuguese — Português
+- Dutch — Nederlands
+- Polish — Polski
+- Czech — Čeština
+- Slovak — Slovenčina
+- Hungarian — Magyar
+- Romanian — Română
+- Swedish — Svenska
+- Norwegian — Norsk
+- Danish — Dansk
+- Finnish — Suomi
+- Turkish — Türkçe
+- Russian — Русский
+- Ukrainian — Українська
+- Greek — Ελληνικά
+- Japanese — 日本語
+- Korean — 한국어
+- Chinese — 中文
+- Arabic — العربية
+
+Arabic uses right-to-left layout where supported. Technical terms such as CPS and FPS, as well as theme names, may stay unchanged across languages.
+
+## Start screen
+
+The optional start screen uses the selected theme and background.
+
+It can show:
+
+- the Auralyn Click logo
+- the Auralyn Click title
+- the selected background
+- a loading animation
+- `By Julius` at the bottom
+
+Available modes:
+
+- Fullscreen
+- Compact
+- Off
+
+The display duration can also be changed in settings.
+
+## Settings
+
+Settings are saved automatically and restored the next time the app starts.
 
 ```text
-~/.config/pulseclick/settings.json
+~/.config/auralyn-click/settings.json
 ```
 
-The old file is not deleted.
+This includes click timing, button mode, position settings, design choices, language and display options.
 
-## 🧰 Technology
+## Requirements
 
-- **Language:** Python 3.10+
-- **GUI:** Qt 6 through PySide6
-- **Localization:** built-in JSON-style Python translation tables with Linux locale auto-detection
-- **Input automation:** pynput
-- **Global Ubuntu/GNOME shortcuts:** GNOME `gsettings` custom shortcuts
-- **Local app control:** Unix domain socket
-- **Single-instance protection:** Linux `flock`
-- **License:** MIT
+- Linux
+- Python 3.10 or newer
+- Qt 6 through PySide6
+- `pynput`
 
-## 📦 Install on Ubuntu
+Auralyn Click is mainly developed and tested on Ubuntu with GNOME. Other Linux desktops may work, but global shortcut behavior can differ.
 
-### Upgrading from the old PulseClick build
+## Installation on Ubuntu
 
-If PulseClick is already installed on your PC, use the migration script. It installs Auralyn Click, removes the old PulseClick launchers so F6/F7/F8 do not conflict, and keeps the old program files/settings as a backup:
-
-```bash
-chmod +x scripts/upgrade-from-pulseclick.sh
-./scripts/upgrade-from-pulseclick.sh
-```
-
-### Updating an existing Auralyn Click install
-
-Version 2.2 includes a dedicated updater that keeps your existing settings:
-
-```bash
-chmod +x scripts/update.sh
-./scripts/update.sh
-```
-
-Your config in `~/.config/auralyn-click/` is not reset.
-
-### Fresh install
-
-Extract or clone the repository, then run:
+Clone or extract the repository and run:
 
 ```bash
 chmod +x scripts/install.sh
 ./scripts/install.sh
 ```
 
-The installer:
+The installer will:
 
-1. installs/checks Ubuntu Python runtime packages,
-2. creates an isolated Python virtual environment,
-3. installs PySide6 and pynput,
-4. installs the Auralyn Click source under `~/.local/share/auralyn-click`,
-5. creates `~/.local/bin/auralyn-click`,
-6. installs the desktop launcher and icon,
-7. configures F6/F7/F8 as GNOME global shortcuts when available,
-8. starts the app.
+1. check the required Ubuntu/Python packages
+2. create an isolated Python virtual environment
+3. install PySide6 and pynput
+4. install Auralyn Click under `~/.local/share/auralyn-click`
+5. create the `auralyn-click` terminal command
+6. install the desktop launcher and icon
+7. configure F6, F7 and F8 as GNOME global shortcuts when supported
+8. start the application
 
-Afterwards you can launch it with:
+After installation, start it from the Ubuntu app menu or run:
 
 ```bash
 auralyn-click
 ```
 
-or from the Ubuntu app menu / desktop icon.
+## Updating
 
-## 🧪 Run from source
+To update an existing Auralyn Click installation while keeping your settings:
+
+```bash
+chmod +x scripts/update.sh
+./scripts/update.sh
+```
+
+Your files in `~/.config/auralyn-click/` are kept.
+
+## Run from source
 
 ```bash
 git clone YOUR_REPOSITORY_URL
@@ -263,15 +233,15 @@ chmod +x scripts/run-dev.sh
 
 The development script creates `.venv` automatically on first run.
 
-## 🌐 Wayland note
+## Wayland
 
-Ubuntu/Wayland may ask you to allow simulated input. If Linux displays a permission prompt for input control, approve it if you want Auralyn Click to click outside its own window.
+On Ubuntu with Wayland, the desktop may ask for permission before an application can simulate mouse input. If you want Auralyn Click to click outside its own window, that permission needs to be allowed.
 
-The F6/F7/F8 GNOME shortcuts are registered separately, so the emergency stop does not depend on the Auralyn Click window having focus.
+The F6, F7 and F8 GNOME shortcuts are registered separately, so the emergency stop does not depend on the application window being focused.
 
-If synthetic mouse input is blocked completely by your Wayland setup, an Xorg session may be more compatible.
+If simulated mouse input is blocked completely by your Wayland setup, an Xorg session may be more compatible.
 
-## ⚙️ Global shortcut troubleshooting
+## Global shortcut troubleshooting
 
 Open:
 
@@ -287,100 +257,100 @@ Auralyn Click F7 Position
 Auralyn Click F8 Emergency Stop
 ```
 
-Make sure F6/F7/F8 are not already assigned to conflicting custom shortcuts.
+If a shortcut does not work, make sure the same function key is not already assigned to another custom shortcut.
 
-## 📤 Publish this project to GitHub
+## Publishing to GitHub
 
-A helper script is included. It uses the official GitHub CLI (`gh`).
+A helper script is included and uses the official GitHub CLI.
 
-First make sure GitHub CLI is installed and logged in:
+Install and sign in to `gh` if needed:
 
 ```bash
 sudo apt install gh
 gh auth login
 ```
 
-Git also needs your commit identity once:
+Git also needs a commit identity:
 
 ```bash
 git config --global user.name "Julius"
 git config --global user.email "YOUR_GITHUB_EMAIL"
 ```
 
-Then publish as a public repository:
+Publish as a public repository:
 
 ```bash
 ./scripts/publish-github.sh public auralyn-click
 ```
 
-Or private:
+Or as a private repository:
 
 ```bash
 ./scripts/publish-github.sh private auralyn-click
 ```
 
-The script initializes Git if needed, creates an initial commit, creates the GitHub repository when it does not exist, adds `origin` and pushes `main`.
+The script initializes Git if needed, creates the first commit, creates the GitHub repository if necessary, adds `origin` and pushes the `main` branch.
 
-## 🗜️ Build a source ZIP
+## Build a source ZIP
 
 ```bash
 ./scripts/build-source-zip.sh
 ```
 
-## 🧹 Uninstall
+## Uninstall
 
 ```bash
 ./scripts/uninstall.sh
 ```
 
-The uninstall script intentionally keeps your settings in `~/.config/auralyn-click/`.
+The uninstall script keeps your settings in `~/.config/auralyn-click/`.
 
-## 📁 Repository structure
+## Project structure
 
 ```text
 AuralynClick/
-├── assets/                         # GitHub/readme artwork
+├── assets/                         # README and repository artwork
 ├── src/auralyn_click/
-│   ├── assets/                     # packaged application icons
-│   ├── backgrounds.py              # Aurora/Nebula/Grid/Particles/custom renderer
-│   ├── click_engine.py             # click worker and advanced click logic
-│   ├── ipc.py                      # single-instance + local global-hotkey bridge
-│   ├── main.py                     # Qt application, splash, settings drawer
-│   ├── settings.py                 # persistent settings + PulseClick migration
-│   ├── widgets.py                  # animated reusable Qt widgets
+│   ├── assets/                     # application icons and packaged assets
+│   ├── backgrounds.py              # animated and custom background renderer
+│   ├── click_engine.py             # click worker and click logic
+│   ├── ipc.py                      # single-instance and local control bridge
+│   ├── main.py                     # Qt application and settings UI
+│   ├── settings.py                 # persistent application settings
+│   ├── widgets.py                  # reusable Qt widgets and animations
 │   ├── __init__.py
 │   └── __main__.py
 ├── scripts/
 │   ├── install.sh
-│   ├── upgrade-from-pulseclick.sh
+│   ├── update.sh
 │   ├── run-dev.sh
 │   ├── uninstall.sh
 │   ├── publish-github.sh
 │   └── build-source-zip.sh
-├── auralyn-click-control.py        # command bridge used by global shortcuts
+├── auralyn-click-control.py        # bridge used by global shortcuts
 ├── requirements.txt
 ├── pyproject.toml
 ├── LICENSE
 └── README.md
 ```
 
-## 🔒 Privacy
+## Privacy
 
-The application itself does not contain telemetry, advertising, account tracking or analytics code. Settings and custom backgrounds are stored locally on the computer.
+Auralyn Click does not include telemetry, advertising, account tracking or analytics code. Settings and custom backgrounds are stored locally on your computer.
 
-Dependency installation obviously requires internet access when packages are not already cached.
+An internet connection is only needed when dependencies need to be downloaded or when you use GitHub-related scripts.
 
-## 🙏 Credits
+## Credits
 
-- **Concept, design direction and project owner:** Julius
-- **Development assistance:** OpenAI ChatGPT
-- **GUI framework:** Qt / PySide6 by The Qt Company / Qt for Python project
-- **Input library:** pynput contributors
+- Concept, design direction and project owner: **Julius**
+- Development assistance: **OpenAI ChatGPT**
+- GUI framework: **Qt / PySide6**
+- Input library: **pynput**
 
-## 📄 License
+## License
 
-MIT License. See [`LICENSE`](LICENSE).
+Auralyn Click is released under the MIT License. See [`LICENSE`](LICENSE).
 
-## ⚠️ Disclaimer
+## Disclaimer
 
-Auralyn Click is a general desktop automation utility. The project does not include anti-cheat bypasses or stealth features. You are responsible for following the rules, terms of service and policies of the apps, games and servers where you use it.
+Auralyn Click is a general desktop automation utility. You are responsible for following the rules, terms of service and policies of the applications, games and servers where you use it.
