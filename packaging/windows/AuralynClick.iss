@@ -42,7 +42,7 @@ Name: "{autoprograms}\Auralyn Click Setup"; Filename: "{app}\{#MyAppExeName}"; P
 Name: "{autodesktop}\Auralyn Click"; Filename: "{app}\{#MyAppExeName}"; Tasks: desktopicon
 
 [Registry]
-Root: HKCU; Subkey: "Software\Microsoft\Windows\CurrentVersion\Run"; ValueType: string; ValueName: "AuralynClick"; ValueData: "\"{app}\{#MyAppExeName}\" --show"; Flags: uninsdeletevalue; Tasks: autostart
+Root: HKCU; Subkey: "Software\Microsoft\Windows\CurrentVersion\Run"; ValueType: string; ValueName: "AuralynClick"; ValueData: """{app}\{#MyAppExeName}"" --show"; Flags: uninsdeletevalue; Tasks: autostart
 
 [Run]
 Filename: "{app}\{#MyAppExeName}"; Description: "Launch Auralyn Click"; Flags: nowait postinstall skipifsilent
